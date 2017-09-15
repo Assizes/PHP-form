@@ -1,0 +1,84 @@
+<style>
+	.right{
+    	float:right;
+    }
+    #embeded-page{
+    	max-width: 500px;
+        background-color: #233237;
+		padding: 15px;
+		margin: auto;
+		z-index: 1;
+		position: relative;
+        box-shadow: 2px 2px 3px 1px #18121E;
+        border-radius: 6px;
+        top: 200px;
+    }
+    td{
+    	padding-top: 2px;
+        padding-bottom: 2px;
+	}
+    td span{
+    	color: #FFB85F;
+    }
+    input:focus{
+    	box-shadow: 0px 0px 4px 1px #b0dbfb;
+    }
+</style>
+<?php
+if($GLOBALS['msg']){
+?>
+	<div class='msg'><?php echo $GLOBALS['msg'];?></div>
+<?php
+	unset($GLOBALS['msg']);
+}
+if($GLOBALS['error']){
+	foreach($GLOBALS['error'] as $error){
+?>
+		<div class='error'><?php echo $error;?></div>
+<?php
+	}
+	unset($GLOBALS['error']);
+}
+?>
+<div align="center">
+	<h1 style='color:#984B43;'>Insert Car to database</h1>
+	<form action="?section=insertCar" method="post">
+		<table border="0" cellpadding="4">
+			<hr>
+			<tr>
+				<td><span>VIN:</span></td>
+				<td><input type="text" name="VIN"></td>
+			</tr>
+			<br>
+			<tr>
+				<td><span>Make:</span></td>
+				<td><input type="text" name="Make"></td>
+			</tr>
+			<br>
+			<tr>
+				<td><span>Model:</span></td>
+				<td><input type="text" name="Model"></td>
+			</tr>
+			<br>
+			<tr>
+				<td><span>Year:</span></td>
+				<td><input type="text" name="Year"></td>
+			</tr>
+			<br>
+			<tr>
+				<td><span>Mileage:</span></td>
+				<td><input type="text" name="Mileage"></td>
+			</tr>
+			<br>
+			<tr>
+				<td><span>Price:</span></td>
+				<td><input type="text" name="Price"></td>
+			</tr>
+			<br>
+			<tr>
+				<td><hr><input class='btn btn-success' type="submit"></td>
+				<td><hr><a class='btn btn-info right' href='?section=carslist'>Show all records</a></td>
+			</tr>
+		</table>
+	</form>
+</div>
